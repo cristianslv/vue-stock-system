@@ -2,3 +2,7 @@
   background-color: #f0511a;
   width: 45%;
 }
+
+.list .btn {
+  width: 150px !important;
+}

@@ -10,8 +10,42 @@ Vue.use(VueRouter);
 // Each route should map to a component.
 // We'll talk about nested routes later.
 const routes = [
-  { path: '/', component: Home },
-  { path: '/empresas', component: List, props: {title: "Eu amo a minha gatinha"} }
+  { 
+    path: '/', 
+    component: Home 
+  },
+  { 
+    path: '/empresas', 
+    component: List, 
+    props: {
+      title: "Empresas",
+      url: "http://localhost:8080/empresas/"
+    }
+  },
+  { 
+    path: '/galpoes', 
+    component: List, 
+    props: {
+      title: "Galpões",
+      url: "http://localhost:8080/galpoes/"
+    }
+  },
+  { 
+    path: '/alocacao', 
+    component: List, 
+    props: {
+      title: "Alocação",
+      url: "http://localhost:8080/alocacao/"
+    }
+  },
+  { 
+    path: '/produtos', 
+    component: List, 
+    props: {
+      title: "Produtos",
+      url: "http://localhost:8080/produtos/"
+    }
+  }
 ]
 
 // Create the router instance and pass the `routes` option
