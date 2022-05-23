@@ -62,7 +62,7 @@ export default {
         galpao_id: null,
         setor: '',
       },
-      getById: CONSTANTS.Estoques.getById,
+      show: CONSTANTS.Estoques.show,
       createItem: CONSTANTS.Estoques.create,
       updateItem: CONSTANTS.Estoques.update,
     }
@@ -71,7 +71,7 @@ export default {
     if (this.$route.params.id) {
       let self = this;
 
-      this.getById(this.$route.params.id).then(data => {
+      this.show(this.$route.params.id).then(data => {
         self.empresa.estoque_id = data.estoque_id;
         self.empresa.galpao_id = data.galpao_id;
         self.empresa.setor = data.setor;

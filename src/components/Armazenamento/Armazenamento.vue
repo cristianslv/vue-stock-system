@@ -73,7 +73,7 @@ export default {
         produto_id: '',
         quantidade: '',
       },
-      getById: CONSTANTS.Armazenamentos.getById,
+      show: CONSTANTS.Armazenamentos.show,
       createItem: CONSTANTS.Armazenamentos.create,
       updateItem: CONSTANTS.Armazenamentos.update,
     }
@@ -82,7 +82,7 @@ export default {
     if (this.$route.params.id) {
       let self = this;
 
-      this.getById(this.$route.params.id).then(data => {
+      this.show(this.$route.params.id).then(data => {
         self.armazenamento.value.estoque_id = data.estoque_id;
         self.armazenamento.value.galpao_id = data.galpao_id;
         self.armazenamento.produto_id = data.produto_id;

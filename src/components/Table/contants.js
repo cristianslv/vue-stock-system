@@ -2,42 +2,48 @@ import {
   getItems as aGet, 
   createItem as aCreate, 
   deleteItem as aDelete, 
-  updateItem as aUpdate 
+  updateItem as aUpdate,
+  showItem as aShow,
 } from "@/services/alocacoesService";
 
 import { 
   getItems as arGet, 
   createItem as arCreate, 
   deleteItem as arDelete, 
-  updateItem as arUpdate 
+  updateItem as arUpdate,
+  showItem as arShow,
 } from "@/services/armazenamentosService";
 
 import { 
   getItems as eGet, 
   createItem as eCreate, 
   deleteItem as eDelete, 
-  updateItem as eUpdate 
+  updateItem as eUpdate,
+  showItem as eShow,
 } from "@/services/empresasService";
 
 import { 
   getItems as esGet, 
   createItem as esCreate, 
   deleteItem as esDelete, 
-  updateItem as esUpdate 
+  updateItem as esUpdate,
+  showItem as esShow,
 } from "@/services/estoquesService";
 
 import { 
   getItems as gGet, 
   createItem as gCreate, 
   deleteItem as gDelete, 
-  updateItem as gUpdate 
+  updateItem as gUpdate,
+  showItem as gShow,
 } from "@/services/galpoesService";
 
 import { 
   getItems as pGet, 
   createItem as pCreate, 
   deleteItem as pDelete, 
-  updateItem as pUpdate 
+  updateItem as pUpdate,
+  showItem as pShow,
 } from "@/services/produtosService";
 
 export const CONSTANTS = {
@@ -57,6 +63,7 @@ export const CONSTANTS = {
     'create': eCreate,
     'delete': eDelete,
     'update': eUpdate,
+    'show': eShow,
   }, 
   'Estoques':{
     'heads': [
@@ -74,6 +81,7 @@ export const CONSTANTS = {
     'create': esCreate,
     'delete': esDelete,
     'update': esUpdate,
+    'show': esShow,
   }, 
   'Galpões':{
     'heads': [
@@ -91,6 +99,7 @@ export const CONSTANTS = {
     'create': gCreate,
     'delete': gDelete,
     'update': gUpdate,
+    'show': gShow,
   }, 
   'Alocação':{
     'heads': [
@@ -112,6 +121,7 @@ export const CONSTANTS = {
     'create': aCreate,
     'delete': aDelete,
     'update': aUpdate,
+    'show': aShow,
   }, 
   'Armazenamentos':{
     'heads': [
@@ -134,6 +144,7 @@ export const CONSTANTS = {
     'create': arCreate,
     'delete': arDelete,
     'update': arUpdate,
+    'show': arShow,
   }, 
   'Produtos':{
     'heads': [
@@ -151,5 +162,6 @@ export const CONSTANTS = {
     'create': pCreate,
     'delete': pDelete,
     'update': pUpdate,
+    'show': pShow,
   }, 
 };

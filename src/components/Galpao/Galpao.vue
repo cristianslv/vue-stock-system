@@ -63,7 +63,7 @@ export default {
         numero: '',
         complemento: '',
       },
-      getById: CONSTANTS['Galpões'].getById,
+      show: CONSTANTS['Galpões'].show,
       createItem: CONSTANTS['Galpões'].create,
       updateItem: CONSTANTS['Galpões'].update,
     }
@@ -97,7 +97,7 @@ export default {
     if (this.$route.params.id) {
       let self = this;
 
-      this.getById(this.$route.params.id).then(data => {
+      this.show(this.$route.params.id).then(data => {
         self.galpao.galpao_id = data.galpao_id;
         self.galpao.nome = data.nome;
         self.galpao.descricao = data.descricao;

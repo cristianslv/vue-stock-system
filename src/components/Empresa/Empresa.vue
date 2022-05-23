@@ -57,7 +57,7 @@ export default {
         nome: '',
         cnpj: '',
       },
-      getById: CONSTANTS.Empresas.getById,
+      show: CONSTANTS.Empresas.show,
       createItem: CONSTANTS.Empresas.create,
       updateItem: CONSTANTS.Empresas.update,
     }
@@ -66,7 +66,7 @@ export default {
     if (this.$route.params.id) {
       let self = this;
 
-      this.getById(this.$route.params.id).then(data => {
+      this.show(this.$route.params.id).then(data => {
         self.empresa.empresa_id = data.empresa_id;
         self.empresa.nome = data.nome;
         self.empresa.cnpj = data.cnpj;

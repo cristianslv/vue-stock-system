@@ -86,7 +86,7 @@ export default {
         datainicial: '',
         datafinal: '',
       },
-      getById: CONSTANTS['Alocação'].getById,
+      show: CONSTANTS['Alocação'].show,
       createItem: CONSTANTS['Alocação'].create,
       updateItem: CONSTANTS['Alocação'].update,
     }
@@ -95,7 +95,7 @@ export default {
     if (this.$route.params.id) {
       let self = this;
 
-      this.getById(this.$route.params.id).then(data => {
+      this.show(this.$route.params.id).then(data => {
         self.alocacao.alocacao_id = data.alocacao_id;
         self.alocacao.estoque_id = data.estoque_id;
         self.alocacao.empresa_id = data.empresa_id;

@@ -1,7 +1,7 @@
 import { API_URL, requestOptions } from "./constants";
 
 export async function list() {
-  const response = await fetch(`${API_URL.EMPRESAS}/listar`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.EMPRESAS}listar`, requestOptions("GET"));
   
   const data = await response.json();
 

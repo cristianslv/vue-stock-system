@@ -57,7 +57,7 @@ export default {
         nome: null,
         descricao: '',
       },
-      getById: CONSTANTS['Produtos'].getById,
+      show: CONSTANTS['Produtos'].show,
       createItem: CONSTANTS['Produtos'].create,
       updateItem: CONSTANTS['Produtos'].update,
     }
@@ -66,7 +66,7 @@ export default {
     if (this.$route.params.id) {
       let self = this;
 
-      this.getById(this.$route.params.id).then(data => {
+      this.show(this.$route.params.id).then(data => {
         self.produto.produto_id = data.produto_id;
         self.produto.nome = data.nome;
         self.produto.descricao = data.descricao;
