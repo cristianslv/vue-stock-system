@@ -3,6 +3,7 @@ export const API_URL = {
   ESTOQUES: "http://localhost:8080/estoques/",
   GALPOES: "http://localhost:8080/galpoes/",
   ALOCACAO: "http://localhost:8080/alocacao/",
+  ARMAZENAMENTOS: "http://localhost:8080/armazenamentos/",
   PRODUTOS: "http://localhost:8080/produtos/"
 };
 

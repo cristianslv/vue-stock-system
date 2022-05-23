@@ -6,6 +6,13 @@ import {
 } from "@/services/alocacoesService";
 
 import { 
+  getItems as arGet, 
+  createItem as arCreate, 
+  deleteItem as arDelete, 
+  updateItem as arUpdate 
+} from "@/services/armazenamentosService";
+
+import { 
   getItems as eGet, 
   createItem as eCreate, 
   deleteItem as eDelete, 
@@ -105,6 +112,28 @@ export const CONSTANTS = {
     'create': aCreate,
     'delete': aDelete,
     'update': aUpdate,
+  }, 
+  'Armazenamentos':{
+    'heads': [
+      'Galpão',
+      'Estoque',
+      'Produto',
+      'Quantidade',
+      'Ações',
+    ],
+    'fields': [
+      'galpao',
+      'estoque',
+      'produto',
+      'quantidade'
+    ],
+    'idField': 'galpao_id',
+    'idField2': 'estoque_id',
+    'route': '/armazenamentos',
+    'get': arGet,
+    'create': arCreate,
+    'delete': arDelete,
+    'update': arUpdate,
   }, 
   'Produtos':{
     'heads': [

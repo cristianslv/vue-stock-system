@@ -6,6 +6,7 @@ import Empresa from './components/Empresa/Empresa.vue';
 import Estoque from './components/Estoque/Estoque.vue';
 import Galpao from './components/Galpao/Galpao.vue';
 import Alocacao from './components/Alocacao/Alocacao.vue';
+import Armazenamento from './components/Armazenamento/Armazenamento.vue';
 import Produto from './components/Produto/Produto.vue';
 import VueRouter from 'vue-router';
 
@@ -136,6 +137,35 @@ const routes = [
     }
   },
   { 
+    path: '/armazenamentos', 
+    component: List, 
+    props: {
+      title: "Armazenamentos",
+    }
+  },
+  { 
+    path: '/armazenamentos/novo', 
+    component: Armazenamento, 
+    props: {
+      title: "Novo armazenamento",
+    }
+  },
+  { 
+    path: '/armazenamentos/editar/:id', 
+    component: Armazenamento, 
+    props: {
+      title: "Editar armazenamento",
+    }
+  },
+  { 
+    path: '/armazenamentos/visualizar/:id', 
+    component: Armazenamento, 
+    props: {
+      title: "Visualizar armazenamento",
+      disabled: true,
+    }
+  },
+  { 
     path: '/produtos', 
     component: List, 
     props: {
@@ -163,14 +193,7 @@ const routes = [
       title: "Visualizar produto",
       disabled: true,
     }
-  },
-  { 
-    path: '/armazenamentos', 
-    component: List, 
-    props: {
-      title: "Produtos",
-    }
-  },
+  }
 ]
 
 // Create the router instance and pass the `routes` option
