@@ -58,7 +58,7 @@ export const CONSTANTS = {
       'nome'
     ],
     'route': '/empresas',
-    'idField': 'empresaid',
+    'idField': 'empresaId',
     'get': eGet,
     'create': eCreate,
     'delete': eDelete,
@@ -76,7 +76,7 @@ export const CONSTANTS = {
       'setor'
     ],
     'route': '/estoques',
-    'idField': 'estoqueid',
+    'idField': 'estoqueId',
     'get': esGet,
     'create': esCreate,
     'delete': esDelete,
@@ -93,7 +93,7 @@ export const CONSTANTS = {
       'nome',
       'descricao'
     ],
-    'idField': 'galpaoid',
+    'idField': 'galpaoId',
     'route': '/galpoes',
     'get': gGet,
     'create': gCreate,
@@ -115,7 +115,7 @@ export const CONSTANTS = {
       'datainicial',
       'datafinal'
     ],
-    'idField': 'alocacaoid',
+    'idField': 'alocacaoId',
     'route': '/alocacao',
     'get': aGet,
     'create': aCreate,
