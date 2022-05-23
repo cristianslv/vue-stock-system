@@ -118,11 +118,11 @@ export default {
       });
     }
 
-    this.getEstoques.then(data => {
+    this.getEstoques().then(data => {
       self.estoques = data;
     });
 
-    this.getEmpresas.then(data => {
+    this.getEmpresas().then(data => {
       self.empresas = data;
     });
   },
