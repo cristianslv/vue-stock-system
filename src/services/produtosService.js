@@ -5,8 +5,8 @@ export function getItems() {
   return list();
 }
 
-export function showItem() {
-  return view();
+export function showItem(id) {
+  return view(id);
 }
 
 export function updateItem(id, item) {
