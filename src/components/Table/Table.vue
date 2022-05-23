@@ -61,9 +61,9 @@ export default {
       return CONSTANTS[this.dataSource].route + '/editar/' + id;
     },
     getViewRoute(data) {
-      // const id = data[CONSTANTS[this.dataSource].idField];
+      const id = data[CONSTANTS[this.dataSource].idField];
 
-      return CONSTANTS[this.dataSource].route + '/visualizar/' + data['id'];
+      return CONSTANTS[this.dataSource].route + '/visualizar/' + id;
     },
     deleteItem(data) {
       const id = data[CONSTANTS[this.dataSource].idField];
