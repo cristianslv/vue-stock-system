@@ -52,7 +52,7 @@ export const CONSTANTS = {
       'nome'
     ],
     'route': '/empresas',
-    'idField': 'empresa_id',
+    'idField': 'empresaid',
     'get': eGet,
     'create': eCreate,
     'delete': eDelete,
@@ -65,11 +65,11 @@ export const CONSTANTS = {
       'Ações',
     ],
     'fields': [
-      'galpao_id',
+      'galpaoid',
       'setor'
     ],
     'route': '/estoques',
-    'idField': 'estoque_id',
+    'idField': 'estoqueid',
     'get': esGet,
     'create': esCreate,
     'delete': esDelete,
@@ -85,7 +85,7 @@ export const CONSTANTS = {
       'nome',
       'descricao'
     ],
-    'idField': 'galpao_id',
+    'idField': 'galpaoid',
     'route': '/galpoes',
     'get': gGet,
     'create': gCreate,
@@ -106,7 +106,7 @@ export const CONSTANTS = {
       'datainicial',
       'datafinal'
     ],
-    'idField': 'alocacao_id',
+    'idField': 'alocacaoid',
     'route': '/alocacao',
     'get': aGet,
     'create': aCreate,
@@ -127,8 +127,8 @@ export const CONSTANTS = {
       'produto',
       'quantidade'
     ],
-    'idField': 'galpao_id',
-    'idField2': 'estoque_id',
+    'idField': 'galpaoid',
+    'idField2': 'estoqueid',
     'route': '/armazenamentos',
     'get': arGet,
     'create': arCreate,
@@ -145,7 +145,7 @@ export const CONSTANTS = {
       'nome',
       'descricao',
     ],
-    'idField': 'produto_id',
+    'idField': 'produtoId',
     'route': '/produtos',
     'get': pGet,
     'create': pCreate,
