@@ -5,6 +5,11 @@
         <link-button text="Empresas" route="/empresas"></link-button>
       </div>      
       <div class="h-100"></div>
+
+      <div class="col mt-4 text-center">
+        <link-button text="Estoques" route="/estoques"></link-button>
+      </div>      
+      <div class="h-100"></div>
       
       <div class="col mt-4 text-center">
         <link-button text="Galpões" route="/galpoes"></link-button>

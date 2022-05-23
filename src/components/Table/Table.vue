@@ -24,9 +24,9 @@
                 Remover
               </button>
               <p></p>
-              <link-button text="Visualizar" :route="getViewRoute()"></link-button>
+              <link-button text="Visualizar" :route="getViewRoute(data)"></link-button>
               <p></p>
-              <link-button text="Editar" :route="getEditRoute(data.id)"></link-button>
+              <link-button text="Editar" :route="getEditRoute(data)"></link-button>
             </td>
           </tr>
         </tbody>
@@ -55,11 +55,15 @@ export default {
     getNewRoute() {
       return CONSTANTS[this.dataSource].route + '/novo';
     },
-    getEditRoute(id) {
+    getEditRoute(data) {
+      const id = data[CONSTANTS[this.dataSource].idField];
+
       return CONSTANTS[this.dataSource].route + '/editar/' + id;
     },
-    getViewRoute() {
-      return CONSTANTS[this.dataSource].route + '/visualizar';
+    getViewRoute(data) {
+      // const id = data[CONSTANTS[this.dataSource].idField];
+
+      return CONSTANTS[this.dataSource].route + '/visualizar/' + data['id'];
     },
     deleteItem(data) {
       const id = data[CONSTANTS[this.dataSource].idField];

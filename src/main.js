@@ -3,6 +3,7 @@ import App from './App.vue';
 import Home from './components/Home.vue';
 import List from './components/List/List.vue';
 import Empresa from './components/Empresa/Empresa.vue';
+import Estoque from './components/Estoque/Estoque.vue';
 import Galpao from './components/Galpao/Galpao.vue';
 import Alocacao from './components/Alocacao/Alocacao.vue';
 import Produto from './components/Produto/Produto.vue';
@@ -40,10 +41,39 @@ const routes = [
     }
   },
   { 
-    path: '/empresas/visualizar', 
+    path: '/empresas/visualizar/:id', 
     component: Empresa, 
     props: {
       title: "Visualizar empresa",
+      disabled: true,
+    }
+  },
+  { 
+    path: '/estoques', 
+    component: List, 
+    props: {
+      title: "Estoques",
+    }
+  },
+  { 
+    path: '/estoques/novo', 
+    component: Estoque, 
+    props: {
+      title: "Novo estoque",
+    }
+  },
+  { 
+    path: '/estoques/editar/:id', 
+    component: Estoque, 
+    props: {
+      title: "Editar estoque",
+    }
+  },
+  { 
+    path: '/estoques/visualizar/:id', 
+    component: Estoque, 
+    props: {
+      title: "Visualizar estoque",
       disabled: true,
     }
   },
@@ -69,7 +99,7 @@ const routes = [
     }
   },
   { 
-    path: '/galpoes/visualizar', 
+    path: '/galpoes/visualizar/:id', 
     component: Galpao, 
     props: {
       title: "Visualizar galpão",
@@ -98,7 +128,7 @@ const routes = [
     }
   },
   { 
-    path: '/alocacao/visualizar', 
+    path: '/alocacao/visualizar/:id', 
     component: Alocacao, 
     props: {
       title: "Visualizar alocação",
@@ -127,7 +157,7 @@ const routes = [
     }
   },
   { 
-    path: '/produtos/visualizar', 
+    path: '/produtos/visualizar/:id', 
     component: Produto, 
     props: {
       title: "Visualizar produto",

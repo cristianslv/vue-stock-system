@@ -13,6 +13,13 @@ import {
 } from "@/services/empresasService";
 
 import { 
+  getItems as esGet, 
+  createItem as esCreate, 
+  deleteItem as esDelete, 
+  updateItem as esUpdate 
+} from "@/services/estoquesService";
+
+import { 
   getItems as gGet, 
   createItem as gCreate, 
   deleteItem as gDelete, 
@@ -43,6 +50,23 @@ export const CONSTANTS = {
     'create': eCreate,
     'delete': eDelete,
     'update': eUpdate,
+  }, 
+  'Estoques':{
+    'heads': [
+      'Galpão',
+      'Setor',
+      'Ações',
+    ],
+    'fields': [
+      'galpao_id',
+      'setor'
+    ],
+    'route': '/estoques',
+    'idField': 'estoque_id',
+    'get': esGet,
+    'create': esCreate,
+    'delete': esDelete,
+    'update': esUpdate,
   }, 
   'Galpões':{
     'heads': [

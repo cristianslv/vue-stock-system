@@ -71,7 +71,6 @@ export default {
         self.empresa.nome = data.nome;
         self.empresa.cnpj = data.cnpj;
       });
-
     }
   }
 }

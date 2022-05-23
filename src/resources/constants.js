@@ -1,5 +1,6 @@
 export const API_URL = {
   EMPRESAS: "http://localhost:8080/empresas/",
+  ESTOQUES: "http://localhost:8080/estoques/",
   GALPOES: "http://localhost:8080/galpoes/",
   ALOCACAO: "http://localhost:8080/alocacao/",
   PRODUTOS: "http://localhost:8080/produtos/"
