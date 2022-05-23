@@ -1,7 +1,11 @@
-import { list, edit, remove, save } from "@/resources/armazenamentosResource";
+import { list, edit, remove, save, view } from "@/resources/armazenamentosResource";
 
 export function getItems() {
   return list();
+}
+
+export function showItem() {
+  return view();
 }
 
 export function updateItem(id, item) {

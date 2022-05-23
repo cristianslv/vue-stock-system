@@ -1,8 +1,12 @@
 
-import { list, edit, remove, save } from "@/resources/galpoesResource";
+import { list, edit, remove, save, view } from "@/resources/galpoesResource";
 
 export function getItems() {
   return list();
+}
+
+export function showItem() {
+  return view();
 }
 
 export function updateItem(id, item) {

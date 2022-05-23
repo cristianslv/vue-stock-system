@@ -8,6 +8,14 @@ export async function list() {
   return data;
 }
 
+export async function view(id) {
+  const response = fetch(`${API_URL.ALOCACAO}/${id}/listar`, requestOptions("GET"));
+
+  const data = await response.json();
+
+  return data;
+}
+
 export async function save(alocacao) {
   const response = fetch(`${API_URL.ALOCACAO}criar`, requestOptions("POST", alocacao));
 

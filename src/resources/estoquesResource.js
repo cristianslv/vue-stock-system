@@ -8,6 +8,14 @@ export async function list() {
   return data;
 }
 
+export async function view(id) {
+  const response = fetch(`${API_URL.ESTOQUES}/${id}/listar`, requestOptions("GET"));
+
+  const data = await response.json();
+
+  return data;
+}
+
 export async function save(estoque) {
   const response = await fetch(`${API_URL.ESTOQUES}criar`, requestOptions("POST", estoque));
 

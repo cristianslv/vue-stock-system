@@ -1,8 +1,16 @@
 import { API_URL, requestOptions } from "./constants";
 
 export async function list() {
-  const response = await fetch(`https://jsonplaceholder.typicode.com/posts`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.EMPRESAS}/listar`, requestOptions("GET"));
   
+  const data = await response.json();
+
+  return data;
+}
+
+export async function view(id) {
+  const response = fetch(`${API_URL.EMPRESAS}/${id}/listar`, requestOptions("GET"));
+
   const data = await response.json();
 
   return data;
