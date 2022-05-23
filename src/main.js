@@ -108,28 +108,28 @@ const routes = [
     }
   },
   { 
-    path: '/alocacao', 
+    path: '/alocacoes', 
     component: List, 
     props: {
       title: "Alocação",
     }
   },
   { 
-    path: '/alocacao/novo', 
+    path: '/alocacoes/novo', 
     component: Alocacao, 
     props: {
       title: "Nova alocação",
     }
   },
   { 
-    path: '/alocacao/editar/:id', 
+    path: '/alocacoes/editar/:id', 
     component: Alocacao, 
     props: {
       title: "Editar alocação",
     }
   },
   { 
-    path: '/alocacao/visualizar/:id', 
+    path: '/alocacoes/visualizar/:id', 
     component: Alocacao, 
     props: {
       title: "Visualizar alocação",

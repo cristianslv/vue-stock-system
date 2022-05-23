@@ -116,7 +116,7 @@ export const CONSTANTS = {
       'datafinal'
     ],
     'idField': 'alocacaoId',
-    'route': '/alocacao',
+    'route': '/alocacoes',
     'get': aGet,
     'create': aCreate,
     'delete': aDelete,
