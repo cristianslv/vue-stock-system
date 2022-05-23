@@ -5,21 +5,31 @@
     <div class="row mt-4">
       <div class="col">
         <select v-model="alocacao.estoqueId" class="custom-select w-100" :disabled="disabled">
-          <option value="">Selecione um estoque</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option :selected="!alocacao.estoqueId">Selecione um estoque</option>
+
+          <option 
+            v-for="(estoque, index) in estoques" 
+            :key="index" 
+            :value="estoque.estoqueId"
+            :selected="estoque.estoqueId === alocacao.estoqueId"
+            >
+            {{estoque.setor}}
+          </option>
         </select>
       </div>
 
-      <div class="col">
-        <select v-model="alocacao.empresaId" class="custom-select w-100" :disabled="disabled">
-          <option value="">Selecione uma empresa</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+      <select v-model="alocacao.empresaId" class="custom-select w-100" :disabled="disabled">
+          <option :selected="!alocacao.empresaId">Selecione uma empresa</option>
+
+          <option 
+            v-for="(empresa, index) in empresas" 
+            :key="index" 
+            :value="empresa.empresaId"
+            :selected="empresa.empresaId === alocacao.empresaId"
+            >
+            {{empresa.nome}}
+          </option>
         </select>
-      </div>
     </div>
 
     <div class="row mt-4">
@@ -79,6 +89,8 @@ export default {
   },
   data() {
     return {
+      estoques: [],
+      empresas: [],
       alocacao: {
         alocacaoId: null,
         estoqueId: null,
@@ -86,15 +98,17 @@ export default {
         datainicial: '',
         datafinal: '',
       },
+      getEstoques: CONSTANTS['Estoques'].get,
+      getEempresas: CONSTANTS['Empresas'].get,
       show: CONSTANTS['Alocação'].show,
       createItem: CONSTANTS['Alocação'].create,
       updateItem: CONSTANTS['Alocação'].update,
     }
   },
   created() {
-    if (this.$route.params.id) {
-      let self = this;
+    let self = this;
 
+    if (this.$route.params.id) {
       this.show(this.$route.params.id).then(data => {
         self.alocacao.alocacaoId = data.alocacaoId;
         self.alocacao.estoqueId = data.estoqueId;
@@ -103,6 +117,14 @@ export default {
         self.alocacao.datafinal = data.datafinal;
       });
     }
+
+    this.getEstoques.then(data => {
+      self.estoques = data;
+    });
+
+    this.getEmpresas.then(data => {
+      self.empresas = data;
+    });
   },
 }
 </script>
