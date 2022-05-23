@@ -99,7 +99,7 @@ export default {
         datafinal: '',
       },
       getEstoques: CONSTANTS['Estoques'].get,
-      getEempresas: CONSTANTS['Empresas'].get,
+      getEmpresas: CONSTANTS['Empresas'].get,
       show: CONSTANTS['Alocação'].show,
       createItem: CONSTANTS['Alocação'].create,
       updateItem: CONSTANTS['Alocação'].update,
