@@ -9,7 +9,7 @@ export async function list() {
 }
 
 export async function view(id) {
-  const response = await fetch(`${API_URL.EMPRESAS}/${id}/listar`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.EMPRESAS}${id}/listar`, requestOptions("GET"));
 
   const data = await response.json();
 
@@ -25,7 +25,7 @@ export async function save(empresa) {
 }
 
 export async function edit(id, empresa) {
-  const response = await fetch(`${API_URL.EMPRESAS}/${id}/editar`, requestOptions("POST", empresa));
+  const response = await fetch(`${API_URL.EMPRESAS}${id}/editar`, requestOptions("POST", empresa));
 
   const data = await response.json();
 
@@ -33,7 +33,7 @@ export async function edit(id, empresa) {
 }
 
 export async function remove(id) {
-  const response = await fetch(`${API_URL.EMPRESAS}/${id}/remover`, requestOptions("DELETE"));
+  const response = await fetch(`${API_URL.EMPRESAS}${id}/remover`, requestOptions("DELETE"));
 
   const data = await response.json();
 

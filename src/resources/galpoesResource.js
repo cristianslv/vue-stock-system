@@ -10,7 +10,7 @@ export async function list() {
 }
 
 export async function view(id) {
-  const response = await fetch(`${API_URL.GALPOES}/${id}/listar`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.GALPOES}${id}/listar`, requestOptions("GET"));
 
   const data = await response.json();
 
@@ -26,7 +26,7 @@ export async function save(galpao) {
 }
 
 export async function edit(id, galpao) {
-  const response = await fetch(`${API_URL.GALPOES}/${id}/editar`, requestOptions("POST", galpao));
+  const response = await fetch(`${API_URL.GALPOES}${id}/editar`, requestOptions("POST", galpao));
 
   const data = await response.json();
 
@@ -34,7 +34,7 @@ export async function edit(id, galpao) {
 }
 
 export async function remove(id) {
-  const response = await fetch(`${API_URL.GALPOES}/${id}/remover`, requestOptions("DELETE"));
+  const response = await fetch(`${API_URL.GALPOES}${id}/remover`, requestOptions("DELETE"));
 
   const data = await response.json();
 

@@ -9,7 +9,7 @@ export async function list() {
 }
 
 export async function view(id) {
-  const response = await fetch(`${API_URL.ESTOQUES}/${id}/listar`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.ESTOQUES}${id}/listar`, requestOptions("GET"));
 
   const data = await response.json();
 
@@ -25,7 +25,7 @@ export async function save(estoque) {
 }
 
 export async function edit(id, estoque) {
-  const response = await fetch(`${API_URL.ESTOQUES}/${id}/editar`, requestOptions("POST", estoque));
+  const response = await fetch(`${API_URL.ESTOQUES}${id}/editar`, requestOptions("POST", estoque));
 
   const data = await response.json();
 
@@ -33,7 +33,7 @@ export async function edit(id, estoque) {
 }
 
 export async function remove(id) {
-  const response = await fetch(`${API_URL.ESTOQUES}/${id}/remover`, requestOptions("DELETE"));
+  const response = await fetch(`${API_URL.ESTOQUES}${id}/remover`, requestOptions("DELETE"));
 
   const data = await response.json();
 
