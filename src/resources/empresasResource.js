@@ -9,7 +9,7 @@ export async function list() {
 }
 
 export async function view(id) {
-  const response = fetch(`${API_URL.EMPRESAS}/${id}/listar`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.EMPRESAS}/${id}/listar`, requestOptions("GET"));
 
   const data = await response.json();
 

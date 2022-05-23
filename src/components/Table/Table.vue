@@ -16,7 +16,7 @@
         <tbody>
           <tr v-for="(data, index) in data" :key="index">
             <td v-for="(field, indexx) in fields" :key="indexx">
-              {{data['id']}}
+              {{data[field]}}
             </td>
 
             <td width="15%">

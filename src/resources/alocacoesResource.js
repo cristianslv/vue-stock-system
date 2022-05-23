@@ -1,7 +1,7 @@
 import { API_URL, requestOptions } from "./constants";
 
 export async function list() {
-  const response = fetch(`${API_URL.ALOCACAO}listar`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.ALOCACAO}listar`, requestOptions("GET"));
 
   const data = await response.json();
 
@@ -9,7 +9,7 @@ export async function list() {
 }
 
 export async function view(id) {
-  const response = fetch(`${API_URL.ALOCACAO}/${id}/listar`, requestOptions("GET"));
+  const response = await fetch(`${API_URL.ALOCACAO}/${id}/listar`, requestOptions("GET"));
 
   const data = await response.json();
 
@@ -17,7 +17,7 @@ export async function view(id) {
 }
 
 export async function save(alocacao) {
-  const response = fetch(`${API_URL.ALOCACAO}criar`, requestOptions("POST", alocacao));
+  const response = await fetch(`${API_URL.ALOCACAO}criar`, requestOptions("POST", alocacao));
 
   const data = await response.json();
 
@@ -25,7 +25,7 @@ export async function save(alocacao) {
 }
 
 export async function edit(id, alocacao) {
-  const response = fetch(`${API_URL.ALOCACAO}/${id}/editar`, requestOptions("POST", alocacao));
+  const response = await fetch(`${API_URL.ALOCACAO}/${id}/editar`, requestOptions("POST", alocacao));
 
   const data = await response.json();
 
@@ -33,7 +33,7 @@ export async function edit(id, alocacao) {
 }
 
 export async function remove(id) {
-  const response = fetch(`${API_URL.ALOCACAO}/${id}/remover`, requestOptions("DELETE"));
+  const response = await fetch(`${API_URL.ALOCACAO}/${id}/remover`, requestOptions("DELETE"));
 
   const data = await response.json();
 
