@@ -1,5 +1,4 @@
-
-import { list, edit, remove, save } from "@/resources/produtosResource";
+import { list, edit, remove, save } from "@/resources/alocacoesResource";
 
 export function getItems() {
   return list();

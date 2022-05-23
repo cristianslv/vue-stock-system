@@ -2,6 +2,10 @@ import Vue from 'vue';
 import App from './App.vue';
 import Home from './components/Home.vue';
 import List from './components/List/List.vue';
+import Empresa from './components/Empresa/Empresa.vue';
+import Galpao from './components/Galpao/Galpao.vue';
+import Alocacao from './components/Alocacao/Alocacao.vue';
+import Produto from './components/Produto/Produto.vue';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
@@ -19,7 +23,28 @@ const routes = [
     component: List, 
     props: {
       title: "Empresas",
-      url: "http://localhost:8080/empresas/"
+    }
+  },
+  { 
+    path: '/empresas/novo', 
+    component: Empresa, 
+    props: {
+      title: "Nova empresa",
+    }
+  },
+  { 
+    path: '/empresas/editar/:id', 
+    component: Empresa, 
+    props: {
+      title: "Editar empresa",
+    }
+  },
+  { 
+    path: '/empresas/visualizar', 
+    component: Empresa, 
+    props: {
+      title: "Visualizar empresa",
+      disabled: true,
     }
   },
   { 
@@ -27,7 +52,28 @@ const routes = [
     component: List, 
     props: {
       title: "Galpões",
-      url: "http://localhost:8080/galpoes/"
+    }
+  },
+  { 
+    path: '/galpoes/novo', 
+    component: Galpao, 
+    props: {
+      title: "Novo galpão",
+    }
+  },
+  { 
+    path: '/galpoes/editar/:id', 
+    component: Galpao, 
+    props: {
+      title: "Editar galpão",
+    }
+  },
+  { 
+    path: '/galpoes/visualizar', 
+    component: Galpao, 
+    props: {
+      title: "Visualizar galpão",
+      disabled: true,
     }
   },
   { 
@@ -35,7 +81,28 @@ const routes = [
     component: List, 
     props: {
       title: "Alocação",
-      url: "http://localhost:8080/alocacao/"
+    }
+  },
+  { 
+    path: '/alocacao/novo', 
+    component: Alocacao, 
+    props: {
+      title: "Nova alocação",
+    }
+  },
+  { 
+    path: '/alocacao/editar/:id', 
+    component: Alocacao, 
+    props: {
+      title: "Editar alocação",
+    }
+  },
+  { 
+    path: '/alocacao/visualizar', 
+    component: Alocacao, 
+    props: {
+      title: "Visualizar alocação",
+      disabled: true,
     }
   },
   { 
@@ -43,9 +110,37 @@ const routes = [
     component: List, 
     props: {
       title: "Produtos",
-      url: "http://localhost:8080/produtos/"
     }
-  }
+  },
+  { 
+    path: '/produtos/novo', 
+    component: Produto, 
+    props: {
+      title: "Novo produto",
+    }
+  },
+  { 
+    path: '/produtos/editar/:id', 
+    component: Produto, 
+    props: {
+      title: "Editar produto",
+    }
+  },
+  { 
+    path: '/produtos/visualizar', 
+    component: Produto, 
+    props: {
+      title: "Visualizar produto",
+      disabled: true,
+    }
+  },
+  { 
+    path: '/armazenamentos', 
+    component: List, 
+    props: {
+      title: "Produtos",
+    }
+  },
 ]
 
 // Create the router instance and pass the `routes` option
