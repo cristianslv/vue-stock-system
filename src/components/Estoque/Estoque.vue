@@ -4,7 +4,7 @@
 
     <div class="row mt-4">
       <div class="col">
-        <select v-model="estoque.galpao_id" class="custom-select w-100" :disabled="disabled">
+        <select v-model="estoque.galpaoId" class="custom-select w-100" :disabled="disabled">
           <option value="">Selecione um Galpao</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -42,8 +42,8 @@ export default {
   },
   methods: {
     submit() {
-      if (this.estoque.estoque_id) {
-        this.updateItem(this.estoque.estoque_id, this.estoque).then(data => {
+      if (this.estoque.estoqueId) {
+        this.updateItem(this.estoque.estoqueId, this.estoque).then(data => {
           console.log(data);
         });
       } else {
@@ -58,8 +58,8 @@ export default {
   data() {
     return {
       estoque: {
-        estoque_id: null,
-        galpao_id: null,
+        estoqueId: null,
+        galpaoId: null,
         setor: '',
       },
       show: CONSTANTS.Estoques.show,
@@ -72,8 +72,8 @@ export default {
       let self = this;
 
       this.show(this.$route.params.id).then(data => {
-        self.empresa.estoque_id = data.estoque_id;
-        self.empresa.galpao_id = data.galpao_id;
+        self.empresa.estoqueId = data.estoqueId;
+        self.empresa.galpaoId = data.galpaoId;
         self.empresa.setor = data.setor;
       });
     }

@@ -37,8 +37,8 @@ export default {
   },
   methods: {
     submit() {
-      if (this.produto.produto_id) {
-        this.updateItem(this.produto.produto_id, this.produto).then(data => {
+      if (this.produto.produtoId) {
+        this.updateItem(this.produto.produtoId, this.produto).then(data => {
           console.log(data);
         });
       } else {
@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       produto: {
-        produto_id: null,
+        produtoId: null,
         nome: null,
         descricao: '',
       },
@@ -67,7 +67,7 @@ export default {
       let self = this;
 
       this.show(this.$route.params.id).then(data => {
-        self.produto.produto_id = data.produto_id;
+        self.produto.produtoId = data.produtoId;
         self.produto.nome = data.nome;
         self.produto.descricao = data.descricao;
       });

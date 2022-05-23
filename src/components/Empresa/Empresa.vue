@@ -37,8 +37,8 @@ export default {
   },
   methods: {
     submit() {
-      if (this.empresa.empresa_id) {
-        this.updateItem(this.empresa.empresa_id, this.empresa).then(data => {
+      if (this.empresa.empresaId) {
+        this.updateItem(this.empresa.empresaId, this.empresa).then(data => {
           console.log(data);
         });
       } else {
@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       empresa: {
-        empresa_id: null,
+        empresaId: null,
         nome: '',
         cnpj: '',
       },
@@ -67,7 +67,7 @@ export default {
       let self = this;
 
       this.show(this.$route.params.id).then(data => {
-        self.empresa.empresa_id = data.empresa_id;
+        self.empresa.empresaId = data.empresaId;
         self.empresa.nome = data.nome;
         self.empresa.cnpj = data.cnpj;
       });

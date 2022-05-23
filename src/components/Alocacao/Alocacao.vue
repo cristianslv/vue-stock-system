@@ -4,7 +4,7 @@
 
     <div class="row mt-4">
       <div class="col">
-        <select v-model="alocacao.estoque_id" class="custom-select w-100" :disabled="disabled">
+        <select v-model="alocacao.estoqueId" class="custom-select w-100" :disabled="disabled">
           <option value="">Selecione um estoque</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -13,7 +13,7 @@
       </div>
 
       <div class="col">
-        <select v-model="alocacao.empresa_id" class="custom-select w-100" :disabled="disabled">
+        <select v-model="alocacao.empresaId" class="custom-select w-100" :disabled="disabled">
           <option value="">Selecione uma empresa</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -64,8 +64,8 @@ export default {
   },
   methods: {
     submit() {
-      if (this.alocacao.alocacao_id) {
-        this.updateItem(this.alocacao.alocacao_id, this.alocacao).then(data => {
+      if (this.alocacao.alocacaoId) {
+        this.updateItem(this.alocacao.alocacaoId, this.alocacao).then(data => {
           console.log(data);
         });
       } else {
@@ -80,9 +80,9 @@ export default {
   data() {
     return {
       alocacao: {
-        alocacao_id: null,
-        estoque_id: null,
-        empresa_id: null,
+        alocacaoId: null,
+        estoqueId: null,
+        empresaId: null,
         datainicial: '',
         datafinal: '',
       },
@@ -96,9 +96,9 @@ export default {
       let self = this;
 
       this.show(this.$route.params.id).then(data => {
-        self.alocacao.alocacao_id = data.alocacao_id;
-        self.alocacao.estoque_id = data.estoque_id;
-        self.alocacao.empresa_id = data.empresa_id;
+        self.alocacao.alocacaoId = data.alocacaoId;
+        self.alocacao.estoqueId = data.estoqueId;
+        self.alocacao.empresaId = data.empresaId;
         self.alocacao.datainicial = data.datainicial;
         self.alocacao.datafinal = data.datafinal;
       });

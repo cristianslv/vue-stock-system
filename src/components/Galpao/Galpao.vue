@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       galpao: {
-        galpao_id: null,
+        galpaoId: null,
         nome: '',
         descricao: '',
         cidade: '',
@@ -70,8 +70,8 @@ export default {
   },
   methods: {
     submit() {
-      if (this.galpao.galpao_id) {
-        this.updateItem(this.galpao.galpao_id, this.galpao).then(data => {
+      if (this.galpao.galpaoId) {
+        this.updateItem(this.galpao.galpaoId, this.galpao).then(data => {
           console.log(data);
         });
       } else {
@@ -98,7 +98,7 @@ export default {
       let self = this;
 
       this.show(this.$route.params.id).then(data => {
-        self.galpao.galpao_id = data.galpao_id;
+        self.galpao.galpaoId = data.galpaoId;
         self.galpao.nome = data.nome;
         self.galpao.descricao = data.descricao;
         self.galpao.cidade = data.cidade;

@@ -13,7 +13,7 @@
       </div>
 
       <div class="col">
-        <select v-model="armazenamento.produto_id" class="custom-select w-100" :disabled="disabled">
+        <select v-model="armazenamento.produtoId" class="custom-select w-100" :disabled="disabled">
           <option value="">Selecione um Produto</option>
           <option value="1">One</option>
           <option value="2">Two</option>
@@ -70,7 +70,7 @@ export default {
     return {
       armazenamento: {
         value: {},
-        produto_id: '',
+        produtoId: '',
         quantidade: '',
       },
       show: CONSTANTS.Armazenamentos.show,
@@ -83,9 +83,9 @@ export default {
       let self = this;
 
       this.show(this.$route.params.id).then(data => {
-        self.armazenamento.value.estoque_id = data.estoque_id;
-        self.armazenamento.value.galpao_id = data.galpao_id;
-        self.armazenamento.produto_id = data.produto_id;
+        self.armazenamento.value.estoqueId = data.estoqueId;
+        self.armazenamento.value.galpaoId = data.galpaoId;
+        self.armazenamento.produtoId = data.produtoId;
         self.armazenamento.quantidade = data.quantidade;
       });
     }
