@@ -106,7 +106,7 @@ export const CONSTANTS = {
     'update': gUpdate,
     'show': gShow,
   }, 
-  'Alocação':{
+  'Alocações':{
     'heads': [
       'Galpão',
       'Estoque',
