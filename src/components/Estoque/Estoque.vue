@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import { DEFAULT_STATS } from 'webpack-dev-server';
 import {CONSTANTS} from '../Table/contants';
 
 export default {
