@@ -13,7 +13,7 @@
             :value="estoque.estoqueId"
             :selected="estoque.estoqueId === alocacao.estoqueId"
             >
-            {{estoque.setor}}
+            {{estoque.nomegalpao}} {{estoque.setorestoque}}
           </option>
         </select>
       </div>

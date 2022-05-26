@@ -73,7 +73,7 @@ export const CONSTANTS = {
       'Ações',
     ],
     'fields': [
-      'galpaoid',
+      'nomegalpao',
       'setor'
     ],
     'route': '/estoques',
