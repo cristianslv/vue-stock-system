@@ -185,6 +185,6 @@ export const CONSTANTS = {
     ],
     'isReport': true,
     'route': '/relatorioprodutos',
-    'get': pGetRelatorio,
+    'getRelatorioItems': pGetRelatorio,
   }, 
 };
