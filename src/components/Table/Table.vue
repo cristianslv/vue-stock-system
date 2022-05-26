@@ -6,6 +6,7 @@
     
     <filter-component 
       v-if="isReport" 
+      :data-source="dataSource"
       @empresa-id="changeEmpresaId"
       @data-inicial="changeDataInicial"
       @data-final="changeDataFinal"
