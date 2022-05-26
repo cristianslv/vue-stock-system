@@ -184,12 +184,8 @@ export const CONSTANTS = {
       'quantidade',
       'ultimaatualizacao',
     ],
-    'idField': 'x',
+    'isReport': true,
     'route': '/relatorioprodutos',
     'get': pGetRelatorio,
-    'create': pCreate,
-    'delete': pDelete,
-    'update': pUpdate,
-    'show': pShow,
   }, 
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-12 mt-4 list">
+    <div v-if="!isReport" class="col-12 mt-4 list">
       <link-button text="Novo" :route="getNewRoute()"></link-button>
     </div>
 
@@ -19,7 +19,7 @@
               {{data[field]}}
             </td>
 
-            <td width="15%">
+            <td v-if="!isReport" width="15%">
               <button type="button" class="btn btn-default" @click="deleteItem(data)">
                 Remover
               </button>
@@ -49,6 +49,11 @@ export default {
     dataSource: {
       required: true,
       type: String
+    }
+  },
+  computed: {
+    isReport() {
+      return CONSTANTS[this.dataSource].isReport;
     }
   },
   methods: {
