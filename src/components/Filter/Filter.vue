@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div v-if="hasFilter" class="row">
     <div class="col-4">
       <select v-model="empresaId" class="custom-select w-100">
         <option :selected="!empresaId">Selecione uma Empresa</option>
@@ -53,6 +53,7 @@ export default {
       empresas: [],
       getEmpresas: CONSTANTS['Empresas'].get,
       hasDate: CONSTANTS[this.dataSource].hasDate,
+      hasFilter: CONSTANTS[this.dataSource].hasFilter,
       datainicial: '',
       datafinal: '',
     }

@@ -202,6 +202,7 @@ export const CONSTANTS = {
     ],
     'isReport': true,
     'hasDate': false,
+    'hasFilter': false,
     'route': '/relatorioestoques',
     'getRelatorioItems': esGetRelatorioAtivos,
   }, 

@@ -118,6 +118,7 @@ export default {
       fields: CONSTANTS[this.dataSource].fields,
       getRelatorioItems: CONSTANTS[this.dataSource].getRelatorioItems,
       hasDate: CONSTANTS[this.dataSource].hasDate,
+      hasFilter: CONSTANTS[this.dataSource].hasFilter,
       getItems: CONSTANTS[this.dataSource].get,
       createItems: CONSTANTS[this.dataSource].crate,
       updateItems: CONSTANTS[this.dataSource].update,
@@ -137,6 +138,10 @@ export default {
       this.getItems().then(data => {
         self.data = data;
       }); 
+    } else if (!this.hasFilter && this.isReport) {
+      this.getRelatorioItems().then(dataset => {
+        self.data = dataset;
+      });
     }
   }
 }
