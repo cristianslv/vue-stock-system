@@ -120,7 +120,7 @@ export default {
 
     if (this.$route.params.id) {
       this.show(this.$route.params.id).then(data => {
-        self.alocacao.alocacaoId = data.alocacaoId;
+        self.alocacao.alocacaoId = data.alocacaoid;
         self.alocacao.estoqueId = data.estoqueid;
         self.alocacao.empresaId = data.empresaid;
         self.alocacao.datainicial = data.datainicial;
