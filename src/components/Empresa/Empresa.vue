@@ -47,7 +47,7 @@ export default {
         })
       }
 
-      console.log(this.empresa);
+      this.$router.push(CONSTANTS['Empresas'].route);
     }
   },
   data() {

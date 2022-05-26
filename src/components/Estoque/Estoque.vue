@@ -52,7 +52,7 @@ export default {
         })
       }
 
-      console.log(this.estoque);
+      this.$router.push(CONSTANTS['Estoques'].route);
     }
   },
   data() {

@@ -80,7 +80,7 @@ export default {
         })
       }
 
-      console.log(this.galpao);
+      this.$router.push(CONSTANTS['Galpões'].route);
     }
   },
   props: {

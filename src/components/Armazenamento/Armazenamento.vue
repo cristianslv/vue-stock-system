@@ -63,7 +63,7 @@ export default {
         })
       }
 
-      console.log(this.armazenamento);
+      this.$router.push(CONSTANTS['Armazenamentos'].route);
     }
   },
   data() {

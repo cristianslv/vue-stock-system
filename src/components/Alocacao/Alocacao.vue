@@ -84,7 +84,7 @@ export default {
         })
       }
 
-      console.log(this.alocacao);
+      this.$router.push(CONSTANTS['Alocação'].route);
     }
   },
   data() {

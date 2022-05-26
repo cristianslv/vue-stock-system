@@ -47,7 +47,7 @@ export default {
         })
       }
 
-      console.log(this.produto);
+      this.$router.push(CONSTANTS['Produtos'].route);
     }
   },
   data() {
