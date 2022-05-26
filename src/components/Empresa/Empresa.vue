@@ -36,7 +36,14 @@ export default {
     }
   },
   methods: {
+    invalidForm() {
+      return !this.empresa.nome || !this.empresa.cnpj;
+    },
     submit() {
+      if (this.invalidForm()) {
+        return alert("CNPJ e Nome são obrigatórios.");
+      }
+
       if (this.empresa.empresaId) {
         this.updateItem(this.empresa.empresaId, this.empresa).then(data => {
           console.log(data);

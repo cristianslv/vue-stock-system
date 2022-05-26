@@ -10,8 +10,8 @@
           <option 
             v-for="(estoque, index) in estoques" 
             :key="index" 
-            :value="estoque.estoqueId"
-            :selected="estoque.estoqueId === alocacao.estoqueId"
+            :value="estoque.estoqueid"
+            :selected="estoque.estoqueid === alocacao.estoqueId"
             >
             {{estoque.nomegalpao}} {{estoque.setorestoque}}
           </option>
