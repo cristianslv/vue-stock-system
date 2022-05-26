@@ -3,7 +3,7 @@
     <h2 class="text-center">{{title}}</h2>
 
     <div class="row mt-4">
-      <div class="col">
+      <div v-if="!disabled" class="col">
         <select v-model="alocacao.estoqueId" class="custom-select w-100" :disabled="disabled">
           <option :selected="!alocacao.estoqueId">Selecione um estoque</option>
 
@@ -16,6 +16,10 @@
             {{ alocacao.alocacaoId ? '' : `${estoque.nomegalpao} -`}} {{estoque.setorestoque}}
           </option>
         </select>
+      </div>
+
+      <div v-else class="col">
+        alocacao.
       </div>
 
       <select v-model="alocacao.empresaId" class="custom-select w-100" :disabled="disabled">
@@ -104,7 +108,9 @@ export default {
       alocacao: {
         alocacaoId: null,
         estoqueId: null,
+        setorestoque: '',
         empresaId: null,
+        nomeempresa: '',
         datainicial: '',
         datafinal: '',
       },
@@ -122,7 +128,9 @@ export default {
       this.show(this.$route.params.id).then(data => {
         self.alocacao.alocacaoId = data.alocacaoid;
         self.alocacao.estoqueId = data.estoqueid;
+        self.alocacao.setorestoque = data.setorestoque;
         self.alocacao.empresaId = data.empresaid;
+        self.alocacao.nomeempresa = data.nomeempresa;
         self.alocacao.datainicial = data.datainicial;
         self.alocacao.datafinal = data.datafinal;
       });

@@ -17,7 +17,7 @@
       <div class="h-100"></div>
 
       <div class="col mt-4 text-center">
-        <link-button text="Alocação" route="/alocacoes"></link-button>
+        <link-button text="Alocações" route="/alocacoes"></link-button>
       </div>
       <div class="h-100"></div>
 
