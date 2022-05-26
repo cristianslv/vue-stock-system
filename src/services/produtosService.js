@@ -5,8 +5,8 @@ export function getItems() {
   return list();
 }
 
-export function getRelatorioItems() {
-  return listRelatorio();
+export function getRelatorioItems({empresaId}) {
+  return listRelatorio(empresaId);
 }
 
 export function showItem(id) {

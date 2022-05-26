@@ -48,8 +48,8 @@ export default {
     }
   },
   watch: {
-    empresaId(now, old) {
-      console.log(now, old);
+    empresaId(now) {
+      this.$emit("empresa-id", now);
     }
   },
   created() {

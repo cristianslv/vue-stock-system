@@ -4,7 +4,7 @@
       <link-button text="Novo" :route="getNewRoute()"></link-button>
     </div>
     
-    <filter-component v-if="isReport"></filter-component>
+    <filter-component v-if="isReport" @empresa-id="changeEmpresaId"></filter-component>
 
     <div class="col-12">
       <table class="table table-striped table-dark mt-4" aria-describedby="list table">
@@ -61,6 +61,14 @@ export default {
     }
   },
   methods: {
+    changeEmpresaId(value) {
+      console.log(value);
+      let self = this;
+
+      this.getRelatorioItems({empresaId: value}).then(dataset => {
+        self.data = dataset;
+      })
+    },
     getNewRoute() {
       return CONSTANTS[this.dataSource].route + '/novo';
     },
@@ -86,6 +94,7 @@ export default {
     return {
       heads: CONSTANTS[this.dataSource].heads,
       fields: CONSTANTS[this.dataSource].fields,
+      getRelatorioItems: CONSTANTS[this.dataSource].getRelatorioItems,
       getItems: CONSTANTS[this.dataSource].get,
       createItems: CONSTANTS[this.dataSource].crate,
       updateItems: CONSTANTS[this.dataSource].update,

@@ -82,6 +82,7 @@ export default {
       !this.alocacao.datafinal;
     },
     submit() {
+      console.log(this.alocacao)
       if (this.invalidForm()) {
         return alert("O estoque, empresa, data inicial e data final são obrigatórios.");
       }
@@ -106,9 +107,7 @@ export default {
       alocacao: {
         alocacaoId: null,
         estoqueId: null,
-        setorestoque: '',
         empresaId: null,
-        nomeempresa: '',
         datainicial: '',
         datafinal: '',
       },
