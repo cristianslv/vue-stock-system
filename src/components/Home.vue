@@ -29,6 +29,12 @@
       <div class="col mt-4 text-center">
         <link-button text="Armazenamentos" route="/armazenamentos"></link-button>
       </div>
+      <div class="h-100"></div>
+
+      <div class="col mt-4 text-center">
+        <link-button text="Relatório Produtos Armazenados" route="/relatorioprodutos"></link-button>
+      </div>
+      <div class="h-100"></div>
     </div>    
   </div>
 </template>

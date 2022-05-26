@@ -9,6 +9,14 @@ export async function list() {
   return data;
 }
 
+export async function listRelatorio(id) {
+  const response = await fetch(`${API_URL.RELATORIOPRODUTOS}${id}/listar`, requestOptions("GET"));
+
+  const data = await response.json();
+
+  return data;
+}
+
 export async function view(id) {
   const response = await fetch(`${API_URL.PRODUTOS}${id}/listar`, requestOptions("GET"));
 

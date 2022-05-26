@@ -1,8 +1,12 @@
 
-import { list, edit, remove, save, view } from "@/resources/produtosResource";
+import { list, listRelatorio, edit, remove, save, view } from "@/resources/produtosResource";
 
 export function getItems() {
   return list();
+}
+
+export function getRelatorioItems() {
+  return listRelatorio();
 }
 
 export function showItem(id) {

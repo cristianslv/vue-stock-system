@@ -193,7 +193,14 @@ const routes = [
       title: "Visualizar produto",
       disabled: true,
     }
-  }
+  },
+  { 
+    path: '/relatorioprodutos', 
+    component: List, 
+    props: {
+      title: "Relatório de Produtos Armazenados",
+    }
+  },
 ]
 
 // Create the router instance and pass the `routes` option

@@ -41,6 +41,7 @@ import {
 
 import { 
   getItems as pGet, 
+  getRelatorioItems as pGetRelatorio,
   createItem as pCreate, 
   deleteItem as pDelete, 
   updateItem as pUpdate,
@@ -163,6 +164,29 @@ export const CONSTANTS = {
     'idField': 'produtoId',
     'route': '/produtos',
     'get': pGet,
+    'create': pCreate,
+    'delete': pDelete,
+    'update': pUpdate,
+    'show': pShow,
+  }, 
+  'Relatório de Produtos Armazenados':{
+    'heads': [
+      'Galpão',
+      'Estoque',
+      'Produto',
+      'Quantidade',
+      'Ultima Atualização',
+    ],
+    'fields': [
+      'nomegalpao',
+      'setorestoque',
+      'nomeproduto',
+      'quantidade',
+      'ultimaatualizacao',
+    ],
+    'idField': 'x',
+    'route': '/relatorioprodutos',
+    'get': pGetRelatorio,
     'create': pCreate,
     'delete': pDelete,
     'update': pUpdate,
