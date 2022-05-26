@@ -19,10 +19,11 @@
       </div>
 
       <div v-else class="col">
-        alocacao.
+        {{alocacao.setorestoque}}
       </div>
 
-      <select v-model="alocacao.empresaId" class="custom-select w-100" :disabled="disabled">
+      <div v-if="!disabled" class="col">
+        <select  v-model="alocacao.empresaId" class="custom-select w-100" :disabled="disabled">
           <option :selected="!alocacao.empresaId">Selecione uma empresa</option>
 
           <option 
@@ -34,6 +35,11 @@
             {{empresa.nome}}
           </option>
         </select>
+      </div>
+
+      <div v-else class="col">
+        {{alocacao.nomeempresa}}
+      </div>
     </div>
 
     <div class="row mt-4">
