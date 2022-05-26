@@ -3,7 +3,7 @@
     <h2 class="text-center">{{title}}</h2>
 
     <div class="row mt-4">
-      <div v-if="!disabled" class="col">
+      <div class="col">
         <select v-model="alocacao.estoqueId" class="custom-select w-100" :disabled="disabled">
           <option :selected="!alocacao.estoqueId">Selecione um estoque</option>
 
@@ -18,11 +18,7 @@
         </select>
       </div>
 
-      <div v-else class="col">
-        {{alocacao.setorestoque}}
-      </div>
-
-      <div v-if="!disabled" class="col">
+      <div class="col">
         <select  v-model="alocacao.empresaId" class="custom-select w-100" :disabled="disabled">
           <option :selected="!alocacao.empresaId">Selecione uma empresa</option>
 
@@ -35,10 +31,6 @@
             {{empresa.nome}}
           </option>
         </select>
-      </div>
-
-      <div v-else class="col">
-        {{alocacao.nomeempresa}}
       </div>
     </div>
 
@@ -121,6 +113,7 @@ export default {
         datafinal: '',
       },
       getEstoquesDisponiveis: CONSTANTS['Estoques'].getAvailable,
+      getEstoques: CONSTANTS['Estoques'].get,
       getEmpresas: CONSTANTS['Empresas'].get,
       show: CONSTANTS['Alocação'].show,
       createItem: CONSTANTS['Alocação'].create,
@@ -139,12 +132,16 @@ export default {
         self.alocacao.nomeempresa = data.nomeempresa;
         self.alocacao.datainicial = data.datainicial;
         self.alocacao.datafinal = data.datafinal;
+        
+        this.getEstoques().then(data => {
+          self.estoques = data;
+        });
+      });
+    } else {
+      this.getEstoquesDisponiveis().then(data => {
+        self.estoques = data;
       });
     }
-
-    this.getEstoquesDisponiveis().then(data => {
-      self.estoques = data;
-    });
 
     this.getEmpresas().then(data => {
       self.empresas = data;
