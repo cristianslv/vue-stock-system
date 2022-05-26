@@ -5,15 +5,25 @@
     <div class="row mt-4">
       <div class="col">
         <select v-model="estoque.galpaoId" class="custom-select w-100" :disabled="disabled">
-          <option value="">Selecione um Galpao</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option :selected="!estoque.galpaoId">Selecione um Galpão</option>
+
+          <option 
+            v-for="(galpao, index) in galpoes" 
+            :key="index" 
+            :value="galpao.galpaoId"
+            :selected="galpao.galpaoId === estoque.galpaoId"
+            >
+            {{galpao.nome}}
+          </option>
         </select>
       </div>
 
       <div class="col">
         <input type="text" v-model="estoque.setor" class="form-control" placeholder="Setor" :disabled="disabled">
+      </div>
+
+      <div class="col">
+        <input type="text" v-model="estoque.capacidade" class="form-control" placeholder="Capacidade (m³)" :disabled="disabled">
       </div>
     </div>
 
@@ -26,6 +36,7 @@
 </template>
 
 <script>
+import { DEFAULT_STATS } from 'webpack-dev-server';
 import {CONSTANTS} from '../Table/contants';
 
 export default {
@@ -57,26 +68,34 @@ export default {
   },
   data() {
     return {
+      galpoes: [],
       estoque: {
         estoqueId: null,
         galpaoId: null,
         setor: '',
+        capacidade: null,
       },
       show: CONSTANTS.Estoques.show,
       createItem: CONSTANTS.Estoques.create,
       updateItem: CONSTANTS.Estoques.update,
+      getGalpoes: CONSTANTS['Galpões'].get,
     }
   },
   created() {
+    let self = this;
+      
     if (this.$route.params.id) {
-      let self = this;
-
       this.show(this.$route.params.id).then(data => {
         self.empresa.estoqueId = data.estoqueId;
         self.empresa.galpaoId = data.galpaoId;
+        self.empresa.capacidade = data.capacidade;
         self.empresa.setor = data.setor;
       });
     }
+
+    this.getGalpoes().then(data => {
+      self.galpoes = data;
+    });
   }
 }
 </script>
