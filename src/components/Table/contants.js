@@ -142,8 +142,7 @@ export const CONSTANTS = {
       'nomeproduto',
       'quantidade'
     ],
-    'idField': 'galpaoid',
-    'idField2': 'estoqueid',
+    'idField': 'armazenamentoId',
     'route': '/armazenamentos',
     'get': arGet,
     'create': arCreate,
