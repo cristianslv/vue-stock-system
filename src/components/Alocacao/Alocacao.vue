@@ -98,7 +98,7 @@ export default {
         datainicial: '',
         datafinal: '',
       },
-      getEstoques: CONSTANTS['Estoques'].get,
+      getEstoquesDisponiveis: CONSTANTS['Estoques'].getAvailable,
       getEmpresas: CONSTANTS['Empresas'].get,
       show: CONSTANTS['Alocação'].show,
       createItem: CONSTANTS['Alocação'].create,
@@ -118,7 +118,7 @@ export default {
       });
     }
 
-    this.getEstoques().then(data => {
+    this.getEstoquesDisponiveis().then(data => {
       self.estoques = data;
     });
 

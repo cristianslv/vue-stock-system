@@ -1,7 +1,11 @@
-import { list, edit, remove, save, view } from "@/resources/estoquesResource";
+import { list, listAvailable, edit, remove, save, view } from "@/resources/estoquesResource";
 
 export function getItems() {
   return list();
+}
+
+export function getAvailableItems() {
+  return listAvailable();
 }
 
 export function showItem(id) {

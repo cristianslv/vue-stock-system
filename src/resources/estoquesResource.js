@@ -8,6 +8,14 @@ export async function list() {
   return data;
 }
 
+export async function listAvailable() {
+  const response = await fetch(`${API_URL.ESTOQUES}listarDisponiveis`, requestOptions("GET"));
+  
+  const data = await response.json();
+
+  return data;
+}
+
 export async function view(id) {
   const response = await fetch(`${API_URL.ESTOQUES}${id}/listar`, requestOptions("GET"));
 

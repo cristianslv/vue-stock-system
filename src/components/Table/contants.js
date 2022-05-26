@@ -24,6 +24,7 @@ import {
 
 import { 
   getItems as esGet, 
+  getAvailableItems as esGetAvailable, 
   createItem as esCreate, 
   deleteItem as esDelete, 
   updateItem as esUpdate,
@@ -78,6 +79,7 @@ export const CONSTANTS = {
     'route': '/estoques',
     'idField': 'estoqueId',
     'get': esGet,
+    'getAvailable': esGetAvailable,
     'create': esCreate,
     'delete': esDelete,
     'update': esUpdate,
