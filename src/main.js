@@ -111,7 +111,7 @@ const routes = [
     path: '/alocacoes', 
     component: List, 
     props: {
-      title: "Alocações",
+      title: "Alocação",
     }
   },
   { 
