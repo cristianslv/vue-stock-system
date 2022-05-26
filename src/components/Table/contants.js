@@ -186,6 +186,7 @@ export const CONSTANTS = {
       'ultimaatualizacao',
     ],
     'isReport': true,
+    'hasDate': false,
     'hasFilter': true,
     'route': '/relatorioprodutos',
     'getRelatorioItems': pGetRelatorio,
