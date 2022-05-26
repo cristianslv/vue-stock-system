@@ -3,31 +3,35 @@
     <h2 class="text-center">{{title}}</h2>
 
     <div class="row mt-4">
-      <select v-model="armazenamento.estoqueId" class="custom-select w-100" :disabled="disabled">
-        <option :selected="!armazenamento.estoqueId">Selecione um Estoque</option>
+      <div class="col">
+        <select v-model="armazenamento.estoqueId" class="custom-select w-100" :disabled="disabled">
+          <option :selected="!armazenamento.estoqueId">Selecione um Estoque</option>
+  
+          <option 
+            v-for="(estoque, index) in estoques" 
+            :key="index" 
+            :value="estoque.estoqueId"
+            :selected="estoque.estoqueId === armazenamento.estoqueId"
+            >
+            {{estoque.nomegalpao}} - {{estoque.setorestoque}}
+          </option>
+        </select>
+      </div>
 
-        <option 
-          v-for="(estoque, index) in estoques" 
-          :key="index" 
-          :value="estoque.estoqueId"
-          :selected="estoque.estoqueId === armazenamento.estoqueId"
-          >
-          {{estoque.nomegalpao}} - {{estoque.setor}}
-        </option>
-      </select>
-
-      <select v-model="armazenamento.produtoId" class="custom-select w-100" :disabled="disabled">
-        <option :selected="!armazenamento.produtoId">Selecione um Produto</option>
-
-        <option 
-          v-for="(produto, index) in produtos" 
-          :key="index" 
-          :value="produto.produtoId"
-          :selected="produto.produtoId === armazenamento.produtoId"
-          >
-          {{produto.nome}}
-        </option>
-      </select>
+      <div class="col">
+        <select v-model="armazenamento.produtoId" class="custom-select w-100" :disabled="disabled">
+          <option :selected="!armazenamento.produtoId">Selecione um Produto</option>
+  
+          <option 
+            v-for="(produto, index) in produtos" 
+            :key="index" 
+            :value="produto.produtoId"
+            :selected="produto.produtoId === armazenamento.produtoId"
+            >
+            {{produto.nome}}
+          </option>
+        </select>
+      </div>
     </div>
 
     <div class="row mt-4">

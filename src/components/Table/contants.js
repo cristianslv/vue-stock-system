@@ -137,9 +137,9 @@ export const CONSTANTS = {
       'Ações',
     ],
     'fields': [
-      'galpao',
-      'estoque',
-      'produto',
+      'nomegalpao',
+      'setorestoque',
+      'nomeproduto',
       'quantidade'
     ],
     'idField': 'galpaoid',
