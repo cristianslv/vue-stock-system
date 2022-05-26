@@ -24,8 +24,8 @@
           <option 
             v-for="(empresa, index) in empresas" 
             :key="index" 
-            :value="empresa.empresaId"
-            :selected="empresa.empresaId === alocacao.empresaId"
+            :value="empresa.empresaid"
+            :selected="empresa.empresaid === alocacao.empresaId"
             >
             {{empresa.nome}}
           </option>
@@ -121,8 +121,8 @@ export default {
     if (this.$route.params.id) {
       this.show(this.$route.params.id).then(data => {
         self.alocacao.alocacaoId = data.alocacaoId;
-        self.alocacao.estoqueId = data.estoqueId;
-        self.alocacao.empresaId = data.empresaId;
+        self.alocacao.estoqueId = data.estoqueid;
+        self.alocacao.empresaId = data.empresaid;
         self.alocacao.datainicial = data.datainicial;
         self.alocacao.datafinal = data.datafinal;
       });

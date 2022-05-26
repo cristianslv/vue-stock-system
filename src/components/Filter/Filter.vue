@@ -1,13 +1,18 @@
 <template>
   <div class="row">
     <div class="col-3">
-      <div class="form-group">
-        <input type="text" class="form-control form-control-lg" id="search" placeholder="Digite o termo">
-      </div>
-    </div>
+      <select v-model="empresaId" class="custom-select w-100" :disabled="disabled">
+        <option :selected="!empresaId">Selecione uma Empresa</option>
 
-    <div class="col-2 ml-0">
-      <button type="submit" class="btn btn-lg full-button">Pesquisar</button>
+        <option 
+          v-for="(empresa, index) in empresas" 
+          :key="index" 
+          :value="empresa.empresaId"
+          :selected="empresa.empresaId === empresaId"
+          >
+          {{empresa.nome}}
+        </option>
+      </select>
     </div>
 
     <!-- <div class="col-3">
@@ -25,6 +30,8 @@
 </template>
 
 <script>
+import {CONSTANTS} from '../Table/contants';
+
 export default {
   name: 'FilterComponent',
   props: {
@@ -32,6 +39,25 @@ export default {
       required: true,
       type: String
     }
+  },
+  data() {
+    return {
+      empresaId: null,
+      empresas: [],
+      getEmpresas: CONSTANTS['Empresas'].get,
+    }
+  },
+  watch: {
+    empresaId(old, now) {
+      console.log(old, now);
+    }
+  },
+  created() {
+    let self = this;
+
+    this.getEmpresas().then(data => {
+      self.empresas = data;
+    });
   }
 }
 </script>

@@ -3,6 +3,8 @@
     <div v-if="!isReport" class="col-12 mt-4 list">
       <link-button text="Novo" :route="getNewRoute()"></link-button>
     </div>
+    
+    <filter-component v-if="isReport"></filter-component>
 
     <div class="col-12">
       <table class="table table-striped table-dark mt-4" aria-describedby="list table">
@@ -37,13 +39,15 @@
 
 <script>
 import LinkButton from "../LinkButton/LinkButton.vue";
+import FilterComponent from "../Filter/Filter.vue";
 
 import {CONSTANTS} from './contants';
 
 export default {
   name: 'TableComponent',
   components: {
-    LinkButton
+    LinkButton,
+    FilterComponent
   },
   props: {
     dataSource: {
@@ -92,9 +96,11 @@ export default {
   mounted() {
     let self = this;
 
-    this.getItems().then(data => {
-      self.data = data;
-    }); 
+    if (!this.isReport) {
+      this.getItems().then(data => {
+        self.data = data;
+      }); 
+    }
   }
 }
 </script>
