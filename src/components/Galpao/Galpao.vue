@@ -71,16 +71,14 @@ export default {
   methods: {
     invalidForm() {
       return !this.galpao.nome ||
-      !this.galpao.descricao ||
       !this.galpao.cidade ||
       !this.galpao.bairro ||
       !this.galpao.rua ||
-      !this.galpao.numero ||
-      !this.galpao.complemento;
+      !this.galpao.numero;
     },
     submit() {
       if (this.invalidForm()) {
-        return alert("O nome, descricao, cidade, bairro, rua, número e complemento são obrigatórios.");
+        return alert("O nome, cidade, bairro, rua e número são obrigatórios.");
       }
 
       if (this.galpao.galpaoId) {
