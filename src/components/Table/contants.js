@@ -105,6 +105,7 @@ export const CONSTANTS = {
   }, 
   'Alocação':{
     'heads': [
+      'Galpão',
       'Estoque',
       'Empresa',
       'Data Inicial',
@@ -112,12 +113,13 @@ export const CONSTANTS = {
       'Ações',
     ],
     'fields': [
-      'estoque',
-      'empresa',
+      'nomegalpao',
+      'setorestoque',
+      'nomeempresa',
       'datainicial',
       'datafinal'
     ],
-    'idField': 'alocacaoId',
+    'idField': 'alocacaoid',
     'route': '/alocacoes',
     'get': aGet,
     'create': aCreate,

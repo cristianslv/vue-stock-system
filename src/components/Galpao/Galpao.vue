@@ -69,7 +69,20 @@ export default {
     }
   },
   methods: {
+    invalidForm() {
+      return !this.galpao.nome ||
+      !this.galpao.descricao ||
+      !this.galpao.cidade ||
+      !this.galpao.bairro ||
+      !this.galpao.rua ||
+      !this.galpao.numero ||
+      !this.galpao.complemento;
+    },
     submit() {
+      if (this.invalidForm()) {
+        return alert("O nome, descricao, cidade, bairro, rua, número e complemento são obrigatórios.");
+      }
+
       if (this.galpao.galpaoId) {
         this.updateItem(this.galpao.galpaoId, this.galpao).then(data => {
           console.log(data);

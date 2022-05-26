@@ -73,7 +73,17 @@ export default {
     }
   },
   methods: {
+    invalidForm() {
+      return !this.alocacao.estoqueId ||
+      !this.alocacao.empresaId ||
+      !this.alocacao.datainicial ||
+      !this.alocacao.datafinal;
+    },
     submit() {
+      if (this.invalidForm()) {
+        return alert("O estoque, empresa, data inicial e data final são obrigatórios.");
+      }
+
       if (this.alocacao.alocacaoId) {
         this.updateItem(this.alocacao.alocacaoId, this.alocacao).then(data => {
           console.log(data);

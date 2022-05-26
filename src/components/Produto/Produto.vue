@@ -36,7 +36,15 @@ export default {
     }
   },
   methods: {
+    invalidForm() {
+      return !this.produto.nome ||
+      !this.produto.descricao;
+    },
     submit() {
+      if (this.invalidForm()) {
+        return alert("O nome e descricao são obrigatórios.");
+      }
+
       if (this.produto.produtoId) {
         this.updateItem(this.produto.produtoId, this.produto).then(data => {
           console.log(data);

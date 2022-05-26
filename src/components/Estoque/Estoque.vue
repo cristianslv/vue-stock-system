@@ -51,7 +51,16 @@ export default {
     }
   },
   methods: {
+    invalidForm() {
+      return !this.estoque.galpaoId ||
+      !this.estoque.setor ||
+      !this.estoque.capacidade;
+    },
     submit() {
+      if (this.invalidForm()) {
+        return alert("O galpao, setor e capacidade são obrigatórios.");
+      }
+
       if (this.estoque.estoqueId) {
         this.updateItem(this.estoque.estoqueId, this.estoque).then(data => {
           console.log(data);

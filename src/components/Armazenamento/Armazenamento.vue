@@ -3,14 +3,18 @@
     <h2 class="text-center">{{title}}</h2>
 
     <div class="row mt-4">
-      <div class="col">
-        <select v-model="armazenamento.value" class="custom-select w-100" :disabled="disabled">
-          <option value="">Selecione um Galpão - Estoque</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
+      <select v-model="armazenamento.estoqueId" class="custom-select w-100" :disabled="disabled">
+        <option :selected="!armazenamento.estoqueId">Selecione um Estoque</option>
+
+        <option 
+          v-for="(estoque, index) in estoques" 
+          :key="index" 
+          :value="estoque.estoqueId"
+          :selected="estoque.estoqueId === armazenamento.estoqueId"
+          >
+          {{estoque.nome}}
+        </option>
+      </select>
 
       <select v-model="armazenamento.produtoId" class="custom-select w-100" :disabled="disabled">
         <option :selected="!armazenamento.produtoId">Selecione um Produto</option>
@@ -24,15 +28,6 @@
           {{produto.nome}}
         </option>
       </select>
-
-      <div class="col">
-        <select v-model="armazenamento.produtoId" class="custom-select w-100" :disabled="disabled">
-          <option value="">Selecione um Produto</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
     </div>
 
     <div class="row mt-4">
@@ -65,9 +60,18 @@ export default {
     }
   },
   methods: {
+    invalidForm() {
+      return !this.armazenamento.estoqueId ||
+      !this.armazenamento.produtoId ||
+      !this.armazenamento.quantidade;
+    },
     submit() {
-      if (this.armazenamento.armazenamento_id) {
-        this.updateItem(this.armazenamento.armazenamento_id, this.armazenamento).then(data => {
+      if (this.invalidForm()) {
+        return alert("O estoque, produto e quantidade são obrigatórios.");
+      }
+
+      if (this.armazenamento.armazenamentoId) {
+        this.updateItem(this.armazenamento.armazenamentoId, this.armazenamento).then(data => {
           console.log(data);
         });
       } else {
@@ -81,12 +85,15 @@ export default {
   },
   data() {
     return {
+      estoques: [],
       produtos: [],
       armazenamento: {
-        value: {},
+        armazenamentoId: null,
+        estoqueId: null,
         produtoId: '',
         quantidade: '',
       },
+      getEstoques: CONSTANTS.Estoques.get,
       getProdutos: CONSTANTS.Produtos.get,
       show: CONSTANTS.Armazenamentos.show,
       createItem: CONSTANTS.Armazenamentos.create,
@@ -98,8 +105,8 @@ export default {
 
     if (this.$route.params.id) {
       this.show(this.$route.params.id).then(data => {
-        self.armazenamento.value.estoqueId = data.estoqueId;
-        self.armazenamento.value.galpaoId = data.galpaoId;
+        self.armazenamento.armazenamentoId = data.armazenamentoId;
+        self.armazenamento.estoqueId = data.estoqueId;
         self.armazenamento.produtoId = data.produtoId;
         self.armazenamento.quantidade = data.quantidade;
       });
@@ -107,6 +114,10 @@ export default {
 
     this.getProdutos().then(data => {
       self.produtos = data;
+    });
+
+    this.getEstoques().then(data => {
+      self.estoques = data;
     });
   }
 }
