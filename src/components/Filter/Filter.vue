@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-3">
-      <select v-model="empresaId" class="custom-select w-100" :disabled="disabled">
+      <select v-model="empresaId" class="custom-select w-100">
         <option :selected="!empresaId">Selecione uma Empresa</option>
 
         <option 
@@ -48,8 +48,8 @@ export default {
     }
   },
   watch: {
-    empresaId(old, now) {
-      console.log(old, now);
+    empresaId(now, old) {
+      console.log(now, old);
     }
   },
   created() {
