@@ -6,6 +6,8 @@ export const API_URL = {
   ARMAZENAMENTOS: "http://localhost:8080/armazenamentos/",
   PRODUTOS: "http://localhost:8080/produtos/",
   RELATORIOPRODUTOS: "http://localhost:8080/relatorios/produtosArmazenados/",
+  RELATORIOESTOQUESATIVOS: "http://localhost:8080/relatorios/estoquesAtivos/",
+  RELATORIOHISTORICOESTOQUES: "http://localhost:8080/relatorios/historicoEstoques/",
 };
 
 export function requestOptions(method, body) {

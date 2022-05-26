@@ -4,7 +4,12 @@
       <link-button text="Novo" :route="getNewRoute()"></link-button>
     </div>
     
-    <filter-component v-if="isReport" @empresa-id="changeEmpresaId"></filter-component>
+    <filter-component 
+      v-if="isReport" 
+      @empresa-id="changeEmpresaId"
+      @data-inicial="changeDataInicial"
+      @data-final="changeDataFinal"
+    ></filter-component>
 
     <div class="col-12">
       <table class="table table-striped table-dark mt-4" aria-describedby="list table">
@@ -61,13 +66,30 @@ export default {
     }
   },
   methods: {
-    changeEmpresaId(value) {
-      console.log(value);
+    checkFilters() {
       let self = this;
 
-      this.getRelatorioItems({empresaId: value}).then(dataset => {
-        self.data = dataset;
-      })
+      if (!this.hasDate) {
+        this.getRelatorioItems({empresaId: this.filter.empresaId}).then(dataset => {
+          self.data = dataset;
+        });
+      } else if (this.filter.empresaId && this.filter.dataInicial, this.filter.dataFinal) {
+        this.getRelatorioItems(this.filter).then(dataset => {
+          self.data = dataset;
+        });
+      }
+    },
+    changeDataInicial(value) {
+      this.filter.dataInicial = value;
+      this.checkFilters();
+    },
+    changeDataFinal(value) {
+      this.filter.dataFinal = value;
+      this.checkFilters();
+    },
+    changeEmpresaId(value) {
+      this.filter.empresaId = value;
+      this.checkFilters();
     },
     getNewRoute() {
       return CONSTANTS[this.dataSource].route + '/novo';
@@ -95,11 +117,17 @@ export default {
       heads: CONSTANTS[this.dataSource].heads,
       fields: CONSTANTS[this.dataSource].fields,
       getRelatorioItems: CONSTANTS[this.dataSource].getRelatorioItems,
+      hasDate: CONSTANTS[this.dataSource].hasDate,
       getItems: CONSTANTS[this.dataSource].get,
       createItems: CONSTANTS[this.dataSource].crate,
       updateItems: CONSTANTS[this.dataSource].update,
       deleteItems: CONSTANTS[this.dataSource].delete,
-      data: []
+      data: [],
+      filter: {
+        empresaId: null,
+        dataInicial: null,
+        dataFinal: null
+      }
     }
   },
   mounted() {

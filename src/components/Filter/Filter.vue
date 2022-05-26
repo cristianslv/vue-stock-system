@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-3">
+    <div class="col-4">
       <select v-model="empresaId" class="custom-select w-100">
         <option :selected="!empresaId">Selecione uma Empresa</option>
 
@@ -15,25 +15,32 @@
       </select>
     </div>
 
-    <!-- <div class="col-3">
+    <div v-if="hasDate" class="col-4">
       <div class="form-group">
-        <input type="text" class="form-control form-control-lg" id="search" placeholder="Digite o termo">
+        <label for="data">Data inicial</label>
+        <date-pick v-model="datainicial"></date-pick>
       </div>
     </div>
 
-    <div class="col-3">
+    <div v-if="hasDate" class="col-4">
       <div class="form-group">
-        <input type="text" class="form-control form-control-lg" id="search" placeholder="Digite o termo">
+        <label for="data">Data final</label>
+        <date-pick v-model="datafinal"></date-pick>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
+import DatePick from 'vue-date-pick';
+import 'vue-date-pick/dist/vueDatePick.css';
 import {CONSTANTS} from '../Table/contants';
 
 export default {
   name: 'FilterComponent',
+  components: {
+    DatePick
+  },
   props: {
     dataSource: {
       required: true,
@@ -45,11 +52,20 @@ export default {
       empresaId: null,
       empresas: [],
       getEmpresas: CONSTANTS['Empresas'].get,
+      hasDate: CONSTANTS[this.dataSource].hasDate,
+      datainicial: '',
+      datafinal: '',
     }
   },
   watch: {
     empresaId(now) {
       this.$emit("empresa-id", now);
+    },
+    datainicial(now) {
+      this.$emit("data-inicial", now);
+    },
+    datafinal(now) {
+      this.$emit("data-final", now);
     }
   },
   created() {

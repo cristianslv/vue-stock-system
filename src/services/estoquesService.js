@@ -1,4 +1,4 @@
-import { list, listAvailable, edit, remove, save, view } from "@/resources/estoquesResource";
+import { list, listAvailable, listRelatorioEstoquesAtivos, listRelatorioHistoricoEstoques, edit, remove, save, view } from "@/resources/estoquesResource";
 
 export function getItems() {
   return list();
@@ -6,6 +6,14 @@ export function getItems() {
 
 export function getAvailableItems() {
   return listAvailable();
+}
+
+export function getRelatorioItemsAtivos() {
+  return listRelatorioEstoquesAtivos();
+}
+
+export function getRelatorioHistoricoItems({empresaId, dataInicial, dataFinal}) {
+  return listRelatorioHistoricoEstoques(empresaId, dataInicial, dataFinal);
 }
 
 export function showItem(id) {

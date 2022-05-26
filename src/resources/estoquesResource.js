@@ -16,6 +16,23 @@ export async function listAvailable() {
   return data;
 }
 
+export async function listRelatorioEstoquesAtivos() {
+  const response = await fetch(`${API_URL.RELATORIOESTOQUESATIVOS}listar`, requestOptions("GET"));
+  
+  const data = await response.json();
+
+  return data;
+}
+
+export async function listRelatorioHistoricoEstoques(empresaId, dataInicial, dataFinal) {
+  const response = await fetch(`${API_URL.RELATORIOHISTORICOESTOQUES}${empresaId}/listar?dataInicial=${dataInicial}&dataFinal=${dataFinal}`, 
+    requestOptions("GET"));
+  
+  const data = await response.json();
+
+  return data;
+}
+
 export async function view(id) {
   const response = await fetch(`${API_URL.ESTOQUES}${id}/listar`, requestOptions("GET"));
 

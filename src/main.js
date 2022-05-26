@@ -201,6 +201,20 @@ const routes = [
       title: "Relatório de Produtos Armazenados",
     }
   },
+  { 
+    path: '/relatorioestoques', 
+    component: List, 
+    props: {
+      title: "Relatório de Estoques Ativos",
+    }
+  },
+  { 
+    path: '/relatoriohistorico', 
+    component: List, 
+    props: {
+      title: "Relatório de Histórico de Estoques",
+    }
+  },
 ]
 
 // Create the router instance and pass the `routes` option

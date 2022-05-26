@@ -25,6 +25,8 @@ import {
 import { 
   getItems as esGet, 
   getAvailableItems as esGetAvailable, 
+  getRelatorioItemsAtivos as esGetRelatorioAtivos,
+  getRelatorioHistoricoItems as esGetRelatorioHistorico,
   createItem as esCreate, 
   deleteItem as esDelete, 
   updateItem as esUpdate,
@@ -186,5 +188,39 @@ export const CONSTANTS = {
     'isReport': true,
     'route': '/relatorioprodutos',
     'getRelatorioItems': pGetRelatorio,
+  }, 
+  'Relatório de Estoques Ativos':{
+    'heads': [
+      'Galpão',
+      'Estoque',
+      'Fim Alocação',
+    ],
+    'fields': [
+      'nomegalpao',
+      'setorestoque',
+      'datafinalalocacao',
+    ],
+    'isReport': true,
+    'hasDate': false,
+    'route': '/relatorioestoques',
+    'getRelatorioItems': esGetRelatorioAtivos,
+  }, 
+  'Relatório de Histórico de Estoques':{
+    'heads': [
+      'Galpão',
+      'Estoque',
+      'Início Alocação',
+      'Fim Alocação',
+    ],
+    'fields': [
+      'nomegalpao',
+      'setorestoque',
+      'datainicial',
+      'datafinal',
+    ],
+    'isReport': true,
+    'hasDate': true,
+    'route': '/relatoriohistorico',
+    'getRelatorioItems': esGetRelatorioHistorico,
   }, 
 };
