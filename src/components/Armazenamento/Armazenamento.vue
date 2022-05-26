@@ -12,6 +12,19 @@
         </select>
       </div>
 
+      <select v-model="armazenamento.produtoId" class="custom-select w-100" :disabled="disabled">
+        <option :selected="!armazenamento.produtoId">Selecione um Produto</option>
+
+        <option 
+          v-for="(produto, index) in produtos" 
+          :key="index" 
+          :value="produto.produtoId"
+          :selected="produto.produtoId === armazenamento.produtoId"
+          >
+          {{produto.nome}}
+        </option>
+      </select>
+
       <div class="col">
         <select v-model="armazenamento.produtoId" class="custom-select w-100" :disabled="disabled">
           <option value="">Selecione um Produto</option>
@@ -68,20 +81,22 @@ export default {
   },
   data() {
     return {
+      produtos: [],
       armazenamento: {
         value: {},
         produtoId: '',
         quantidade: '',
       },
+      getProdutos: CONSTANTS.Produtos.get,
       show: CONSTANTS.Armazenamentos.show,
       createItem: CONSTANTS.Armazenamentos.create,
       updateItem: CONSTANTS.Armazenamentos.update,
     }
   },
   created() {
-    if (this.$route.params.id) {
-      let self = this;
+    let self = this;
 
+    if (this.$route.params.id) {
       this.show(this.$route.params.id).then(data => {
         self.armazenamento.value.estoqueId = data.estoqueId;
         self.armazenamento.value.galpaoId = data.galpaoId;
@@ -89,6 +104,10 @@ export default {
         self.armazenamento.quantidade = data.quantidade;
       });
     }
+
+    this.getProdutos().then(data => {
+      self.produtos = data;
+    });
   }
 }
 </script>

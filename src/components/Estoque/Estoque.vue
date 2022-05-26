@@ -85,10 +85,10 @@ export default {
       
     if (this.$route.params.id) {
       this.show(this.$route.params.id).then(data => {
-        self.empresa.estoqueId = data.estoqueId;
-        self.empresa.galpaoId = data.galpaoId;
-        self.empresa.capacidade = data.capacidade;
-        self.empresa.setor = data.setor;
+        self.estoque.estoqueId = data.estoqueId;
+        self.estoque.galpaoId = data.galpao.galpaoId;
+        self.estoque.capacidade = data.capacidade;
+        self.estoque.setor = data.setor;
       });
     }
 

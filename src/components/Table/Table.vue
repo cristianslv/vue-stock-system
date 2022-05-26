@@ -69,7 +69,7 @@ export default {
       const id = data[CONSTANTS[this.dataSource].idField];
       
       this.deleteItems(id).then(() => {
-        this.$router.push(CONSTANTS[this.dataSource].route);
+        location.reload();
       });
     }
   },
