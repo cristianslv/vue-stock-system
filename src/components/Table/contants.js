@@ -75,7 +75,7 @@ export const CONSTANTS = {
     ],
     'fields': [
       'nomegalpao',
-      'setor'
+      'setorestoque'
     ],
     'route': '/estoques',
     'idField': 'estoqueId',
